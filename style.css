@@ -1,0 +1,287 @@
+/* General Reset & Body */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+header h1 {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 0.1em;
+}
+
+header p {
+    font-size: 1.3em;
+    color: #7f8c8d;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+address {
+    font-style: normal;
+    font-size: 1em;
+    color: #555;
+}
+
+address a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+address a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Sections */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em; /* Matches h2 original margin-bottom */
+}
+
+.section-header h2,
+.section-header h3 { /* For Projects subsection */
+    margin-bottom: 0; /* Handled by section-header margin */
+    border-bottom: none; /* Remove default border as it might look odd with button */
+}
+
+h2 { /* Original h2 styles, keep for non-collapsible if any or general page structure */
+    font-size: 2em;
+    color: #2980b9;
+    padding-bottom: 0.4em; /* Keep padding if border is re-added or for consistency */
+    margin-top: 0;
+     /* margin-bottom is now on section-header or individual h2 if not in a header */
+}
+
+
+section {
+    padding-bottom: 1em;
+    margin-bottom: 1.5em;
+}
+
+article {
+    margin-bottom: 1.5em;
+}
+
+article h3 {
+    font-size: 1.5em;
+    color: #34495e;
+    margin-bottom: 0.3em;
+}
+
+/* Ensure h3 within section-header also has no bottom margin if it's part of collapsible title */
+.section-header > h3 {
+    margin-bottom: 0;
+}
+
+
+article h3 a {
+    color: #34495e;
+    text-decoration: none;
+}
+
+article h3 a:hover {
+    text-decoration: underline;
+}
+
+.job-meta {
+    font-size: 0.95em;
+    color: #7f8c8d;
+    margin-bottom: 0.7em;
+    font-style: italic;
+}
+
+.environment {
+    font-style: italic;
+    color: #555;
+    font-size: 0.9em;
+    background-color: #ecf0f1;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 0.6em;
+    position: relative;
+    padding-left: 20px; /* Space for custom bullet */
+}
+
+ul li::before {
+    content: '›'; /* Custom bullet */
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #2980b9;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    color: #1abc9c;
+}
+
+.projects-category {
+    margin-top: 1.2em;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #34495e;
+}
+
+/* Horizontal Ruler */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 2.5em 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2em;
+    padding-top: 1.5em;
+    border-top: 2px solid #e0e0e0;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+/* Collapsible Section Styles */
+.collapsible-toggle {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+}
+
+.collapsible-toggle:hover {
+    background-color: #f0f0f0;
+}
+
+.toggle-icon {
+    margin-left: 0.5em; /* If text is added to button, else just use for icon */
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    /* Add some padding/margin when expanded if needed */
+}
+
+.collapsible-content.expanded {
+    /* max-height is set by JS, this class is mostly for semantic/state tracking */
+    /* Example: add padding when expanded */
+    padding-top: 10px; 
+}
+
+/* Responsive Design */
+/* Duplicates of "Horizontal Ruler" and "Footer" were removed from immediately above this line */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    article h3 {
+        font-size: 1.3em;
+    }
+
+    ul li {
+        padding-left: 15px; /* Adjust custom bullet spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    article h3 {
+        font-size: 1.2em;
+    }
+
+    .job-meta, address, .environment {
+        font-size: 0.85em;
+    }
+
+    ul li {
+        font-size: 0.95em;
+    }
+
+    .section-header {
+        flex-direction: column; /* Stack title and button on small screens */
+        align-items: flex-start;
+    }
+
+    .collapsible-toggle {
+        margin-top: 0.5em; /* Add some space between title and button when stacked */
+    }
+}
