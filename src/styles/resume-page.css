@@ -1,4 +1,16 @@
 /* General Reset & Body */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
